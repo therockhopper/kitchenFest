@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core';
 import { HomeModule } from './home/home.module';
 
@@ -39,6 +40,7 @@ const appRoutes:Routes = [
       { enableTracing: true }
     ),
     BrowserModule,
+    HttpClientModule,
     HomeModule,
   ],
   providers: [

@@ -27,7 +27,7 @@ http.post(authUrl).then(
 /**
  * Get all videos
  */
-app.get('/all', (req, res) => {
+app.get('/api/all', (req, res) => {
   return Ingest.Videos.getAll(null, null, (error, data ) => { 
     if (error) {
       return res.status(500).send(); 
