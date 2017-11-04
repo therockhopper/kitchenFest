@@ -1,4 +1,7 @@
-<div class="title" [innerHtml]="title"></div>
+<app-nav></app-nav>
+<h1 class="title">Events near me</h1>
 <div class="videos" *ngFor="let video of videos">
-  {{ video | json }}
+  <div class="card">
+    {{ video | json }}
+  </div>
 </div>

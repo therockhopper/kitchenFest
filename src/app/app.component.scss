@@ -1,0 +1,23 @@
+.title {
+  width: 100%;
+  text-align: center;
+}
+
+.videos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+  width: 100%;
+  max-width: 30rem;
+  border: 1px solid #aeaeae;
+  padding: 1rem;
+  border-radius: 1rem;
+}
