@@ -11,6 +11,7 @@
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,4 +22,14 @@
   border: 1px solid #aeaeae;
   padding: 1rem;
   border-radius: 1rem;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    filter: grayscale(40%);
+  }
 }

@@ -4,7 +4,7 @@ import { EventComponent } from './event/event.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: EventComponent
   }
 ];

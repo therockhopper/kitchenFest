@@ -9,18 +9,23 @@ import { EventsService } from '../../events.service';
 export class HomeComponent implements OnInit {
   events: any[] = [
     {
+      id: 1,
       title: "My Movie",
       description: "The best movie"
     },
     {
+      id: 1,
       title: "Not my Movie",
       description: "The best movie"
     },
     {
+      id: 1,
       title: "My Movie",
       description: "The best movie"
     },
   ]
+
+  videos: any[]
 
   constructor(
     private eventsService: EventsService
@@ -30,7 +35,8 @@ export class HomeComponent implements OnInit {
     this.eventsService.getAllEventsVideos()
       .subscribe(
         res => {
-          console.log(res)
+          this.videos = res.data
+          console.log(this.videos)
         }
       )
   }

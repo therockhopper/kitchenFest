@@ -1,8 +1,9 @@
 <h1 class="title">Events near me</h1>
 <div class="events" *ngFor="let event of events">
-  <div class="card">
+  <div class="card" *ngIf="videos" [routerLink]="['/event', event.id]">
     <h3 [innerHtml]="event.title"></h3>
     <p [innerHtml]="event.description"></p>
+    <img [src]="videos[0].poster.thumbnail_url"/>
   </div>
 </div>
 
