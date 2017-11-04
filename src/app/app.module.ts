@@ -12,6 +12,10 @@ const appRoutes:Routes = [
     loadChildren: 'app/home/home.module#HomeModule' 
   },
   {
+    path: 'event',
+    loadChildren: 'app/event/event.module#EventModule'
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
