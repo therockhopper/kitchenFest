@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Kitchen Fest';
+
+  videos: any[] = [
+    {title: "My Movie"},
+    {title: "Not my Movie"},
+  ]
 }
