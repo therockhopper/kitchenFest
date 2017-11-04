@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HomeModule } from './home/home.module';
 
+import { EventsService } from './events.service';
+
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 
@@ -39,7 +41,9 @@ const appRoutes:Routes = [
     BrowserModule,
     HomeModule,
   ],
-  providers: [],
+  providers: [
+    EventsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
