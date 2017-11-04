@@ -1,24 +1,41 @@
 const express = require('express')
+const http =  require('axios')
 const IngestSDK = require('@ingest/ingest-node-sdk')
 const app = express()
+let Ingest
 
-const Ingest = new IngestSDK({
-  token: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovLyouaW5nZXN0LmlvIiwiY2lkIjoid0xZQVF4TzFmcmpKOGJ6TnJkUEoiLCJleHAiOjE1MTAwNjE2ODUsImp0aSI6IjY1ZmY4MTMwLTQ0ODAtNDg3Mi05MDI0LWI2MzMxZTgxODNjMiIsImlhdCI6MTUwOTgwMjQ4NSwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5pbmdlc3QuaW8vcGVyc29uYWwiLCJudHciOiI5YWFiMTM2Ny1lY2U2LTRhNzItYWZjMS00NTBiMjFjN2NhNjAiLCJzY29wZSI6eyJhY3Rpb25zIjpbIiJdfSwic3ViIjoiMGU0OTQ1MDYtZGU2OS00OWJmLTllOWQtYTMzNDg1YWQxZWJmIn0.lt6A6vTWnxZ1irwghPOF8Zo2Edr_cfbDPCqYOYtqeoXpZwlZfHhJSeTfF1PlJfsbQpElMOIaBXBS6zkOvJyYrjpCuUGIaF6gi_M2IDzV4GMBtb7OqjTBgv2gSy4C5-wQSvE7gmEZBufkQQNEaG_fM3N-9_lyu8q2W6Koa7_ul6sPYJ6up4tH_b94bqVYO5WJZD0FEya4I42MrpcpDzzhyvaTyaP6FJZrKQ9p60FIAkSPWcE7U89KE8E_vFwd9t4ACQHqWBjxAaLP17WjPMEBvP8tA6U84Gd2Jlfbauqo0NIUnBrszQDaR-A0Z-UJVkqWeoTOvgLC5M9ZaQG4MThZQQ',
-})
+login()
 
-//console.log(Ingest)
-getAllVideos()
 
-function getAllVideos() {
-  console.log('gettgin all videos')
-  Ingest.Videos.getAll((error, data) => {
-    if (error) {
-      // handle error
+function login() {
+  var client_id, client_secret, grant_type, client_scopes;
+  var request, requestOptions, authUrl
+
+  grant_type = '?grant_type=client_credentials';
+  client_id = '&client_id=wLYAQxO1frjJ8bzNrdPJ';
+  client_secret = '&client_secret=WmI2gUy4YvoO1i7PvStTcO4VAZO1u3MzEctt7upB';
+  client_scopes = '&scope=all';
+
+  authUrl = 'https://login.ingest.io/token' + grant_type + client_id + client_secret + client_scopes;
+
+  console.log(authUrl)
+
+  http.post(authUrl).then(
+    resp => {
+      Ingest = new IngestSDK({
+        token: `Bearer ${resp.data.access_token} `,
+      })
+      getAll()
+    },
+    error => {
       console.log(error)
-    }
+    })
+}
 
+
+function getAll() {
+  Ingest.Videos.getAll(null, null, (error, data ) => {
     console.log(data)
-
   })
 }
 
