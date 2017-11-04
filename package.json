@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
+    "start:dev": "ng serve",
+    "start:local": "nodemon server.js",
+    "release": "ng build --prod",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -21,7 +20,9 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
+    "@ingest/ingest-node-sdk": "^1.1.1",
     "core-js": "^2.4.1",
+    "express": "^4.16.2",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },
@@ -41,6 +42,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "nodemon": "^1.12.1",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
