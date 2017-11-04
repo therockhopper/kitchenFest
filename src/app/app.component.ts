@@ -6,9 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  videos: any[] = [
-    {title: "My Movie"},
-    {title: "Not my Movie"},
-    {title: "My Movie"},
-  ]
+  
 }
